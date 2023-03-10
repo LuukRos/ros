@@ -1,4 +1,7 @@
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import { isExternalUrl } from '~/utils/is-external-url';
 
 type Item = {
   label: string;
@@ -16,7 +19,20 @@ interface ListProps {
 export const List = ({ items, type = 'ul', resetStyles, title }: ListProps) => {
   const ListTemplate = type;
   const itemTemplate = (item: Item) =>
-    item.href ? <Link href={item.href}>{item.label}</Link> : <>{item.label}</>;
+    item.href ? (
+      <Link href={item.href} className="text-blue">
+        {item.label}
+        {isExternalUrl(item.href) ? (
+          <FontAwesomeIcon
+            icon={faArrowUpRightFromSquare}
+            key={0}
+            className="ml-2"
+          />
+        ) : null}
+      </Link>
+    ) : (
+      <>{item.label}</>
+    );
 
   return (
     <>
@@ -28,11 +44,11 @@ export const List = ({ items, type = 'ul', resetStyles, title }: ListProps) => {
             ? type === 'ol'
               ? 'ml-8 list-decimal'
               : 'ml-4 list-disc'
-            : 'm-0 list-none p-0'
-        } mb-8`}
+            : 'm-0 flex list-none gap-2 p-0'
+        }`}
       >
         {items.map((item, index) => (
-          <li key={index} className="list-item marker:text-yellow">
+          <li key={index} className="list-item marker:text-green">
             {item.icon}
             {itemTemplate(item)}
           </li>

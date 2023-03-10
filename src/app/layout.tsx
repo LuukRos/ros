@@ -1,5 +1,6 @@
 import { Header } from '~/components/header';
-import './globals.css';
+
+import '~/assets/styles/globals.css';
 
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -11,7 +12,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <head />
       <body
-        className={`latte bg-base p-8 text-green dark:frappe dark:text-blue ${baseFont.variable} ml-0 min-w-[320px] max-w-[860px] font-mono`}
+        className={`latte bg-base p-4 text-black dark:mocha dark:text-white md:p-8 ${baseFont.variable} ml-0 min-w-[320px] max-w-[860px] font-mono`}
       >
         <Header />
 

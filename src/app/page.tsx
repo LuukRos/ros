@@ -1,26 +1,18 @@
 import { Command } from '~/components/command';
-import { List } from '~/components/list';
+import { Form } from '~/components/form';
+
+export const metadata = {
+  title: 'ros.io | Personal blog & portfolio',
+  description:
+    'This website contains a blog about (front-end) software development and engineering and a shiny portfolio highlighting my work throughout the years.',
+};
 
 const Home = async () => {
   return (
     <main>
-      <Command command={'cat links.md'} />
-      <List
-        type="ul"
-        title="You can find me on:"
-        items={[
-          {
-            label: 'GitHub',
-            href: 'https://github.com/luukros',
-          },
-          {
-            label: 'Twitter',
-            href: 'https://twitter.com/rosnotbob',
-          },
-        ]}
-      />
+      <Command command="ros --help" />
 
-      <section className="mb-8">
+      <section className="my-4">
         <p className="mb-4">
           My field of expertise, or more so passion, is front-end development,
           in which I thoroughly enjoy solving complex problems in a practical
@@ -60,17 +52,7 @@ const Home = async () => {
         </p>
       </section>
 
-      <Command command={'cat interests.md'} />
-      <List
-        type="ul"
-        title="Some of my interests include"
-        items={[
-          { label: 'coding' },
-          { label: 'keyboard shortcuts' },
-          { label: 'LEGO' },
-          { label: 'music' },
-        ]}
-      />
+      <Form />
     </main>
   );
 };

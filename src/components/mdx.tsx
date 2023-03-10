@@ -1,9 +1,14 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { Command, Heading } from '~/components';
+import { Command } from '~/components/command';
+import { Heading } from '~/components/heading';
+import { List } from '~/components/list';
+import { Pre } from '~/components/code';
 
 const components = {
   Command,
   Heading,
+  List,
+  Pre,
 };
 
 interface MDXProps {

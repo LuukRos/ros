@@ -9,9 +9,14 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { usePathnameSections, useTextMutations } from '~/hooks';
+import { usePathnameSections } from '~/hooks/use-pathname-sections';
+import { useTextMutations } from '~/hooks/use-text-mutations';
 
-const MENU_COLOURS = ['blue', 'yellow', 'mauve'];
+const MENU_COLOURS = [
+  'bg-blue after:border-l-blue',
+  'bg-yellow after:border-l-yellow',
+  'bg-mauve after:border-l-mauve',
+];
 const MENU_ICONS = [
   <FontAwesomeIcon icon={faHome} key={0} />,
   <FontAwesomeIcon icon={faFolderOpen} key={1} />,
@@ -21,7 +26,7 @@ export type MenuItem = {
   label: string;
   href: string;
   icon?: React.ReactNode;
-  background?: string;
+  color?: string;
 };
 
 const MenuItem = ({ item }: { item: MenuItem }) => {
@@ -30,10 +35,10 @@ const MenuItem = ({ item }: { item: MenuItem }) => {
 
   return (
     <li
-      className={`flex h-8 items-center bg-${item.background} relative w-auto text-black after:absolute after:left-full after:z-10 after:border-l-[16px] after:border-t-[16px] after:border-b-[16px] after:border-t-transparent after:border-l-${item.background} after:border-b-transparent`}
+      className={`flex h-8 items-center ${item.color} relative w-auto text-white after:absolute after:left-full after:z-10 after:border-l-[16px] after:border-t-[16px] after:border-b-[16px] after:border-t-transparent after:border-b-transparent dark:text-black`}
     >
-      <Link href={item.href}>
-        {item.icon && <span className="mx-2 pl-4 text-xs">{item.icon}</span>}
+      <Link href={`${item.href}`}>
+        {item.icon && <span className="mx-2 text-xs md:pl-4">{item.icon}</span>}
         <span className={`${!item.icon ? 'ml-6' : ''} mr-2`}>{label}</span>
       </Link>
     </li>
@@ -48,14 +53,14 @@ export const Header = () => {
     label: !section ? '~ Home' : section,
     href: section,
     icon: MENU_ICONS[index],
-    background: MENU_COLOURS[index],
+    color: MENU_COLOURS[index],
   }));
 
-  useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 60000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => setTime(new Date()), 100);
 
-    return () => clearInterval(timer);
-  }, []);
+  //   return () => clearInterval(timer);
+  // }, []);
 
   return (
     <header className="mb-8 flex items-center justify-between">
