@@ -4,8 +4,8 @@ import {
   FieldDefs,
   makeSource,
 } from 'contentlayer/source-files';
-import { rehypePostVisit } from './lib/rehype-post-visit';
-import { rehypePreVisit } from './lib/rehype-pre-visit';
+// import { rehypePostVisit } from './lib/rehype-post-visit';
+// import { rehypePreVisit } from './lib/rehype-pre-visit';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
@@ -76,8 +76,8 @@ export default makeSource({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       // TODO: these rehype plugins are meant for copy-to-clipboard functionality, which does not work yet.
-      rehypePreVisit,
-      rehypePostVisit,
+      // rehypePreVisit,
+      // rehypePostVisit,
       rehypeSlug,
       [rehypePrettyCode, rehypePrettyCodeOptions],
       [rehypeAutolinkHeadings, rehypeAutolinkHeadingsOptions],
