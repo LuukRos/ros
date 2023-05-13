@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { Command } from '~/components/command';
 import { MDX } from '~/components/mdx';
 import { Result as ResultProps } from '~/types/form';
@@ -15,6 +16,8 @@ export const Result = ({ input, output }: ResultProps) => {
         {!!processedResult.files?.length && (
           <div className="flex gap-2">
             {processedResult.files.map((file, index) => (
+              // TODO: figure out if this can be resolved
+              // @ts-expect-error
               <span key={index}>{file}</span>
             ))}
           </div>

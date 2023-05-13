@@ -1,4 +1,4 @@
-import { type Options } from 'rehype-autolink-headings';
+import type { Options } from 'rehype-autolink-headings';
 
 export const rehypeAutolinkHeadingsOptions: Partial<Options> = {
   properties: {

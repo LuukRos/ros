@@ -9,15 +9,20 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi vero doloribus
 
 # Heading 1
 
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi vero doloribus, ducimus consectetur neque necessitatibus labore itaque atque mollitia? Perferendis asperiores sunt soluta officia quidem optio, tenetur consectetur tempore doloribus!
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. `some inline code` Commodi vero doloribus, ducimus consectetur neque necessitatibus labore itaque atque mollitia? Perferendis asperiores sunt soluta officia quidem optio, tenetur consectetur tempore doloribus!
 
-```tsx showLineNumbers title="../path/to/my/componentcomponent.tsx" /id/#b /isVisible/#y /null/#m {2,4}
-export const Component = ({ id, isVisible = true }) => {
+<div className="relative">
+  <CodeTitle iconName="typescript_react" title="path/to/my/file.tsx" />
+
+```tsx showLineNumbers /id/#b /isVisible/#y /null/#m
+export const Component = ({ id: string, isVisible = true }) => {
   if (!isVisible) return null;
 
   return <div>{id}</div>;
 };
 ```
+
+</div>
 
 ## Heading 2
 

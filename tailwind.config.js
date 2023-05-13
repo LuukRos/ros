@@ -2,6 +2,7 @@
 
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  plugins: [require('@catppuccin/tailwindcss')],
   theme: {
     extend: {
       animation: {
@@ -9,6 +10,7 @@ module.exports = {
       },
       fontFamily: {
         mono: ['var(--font-cartograph)'],
+        italic: ['var(--font-cartograph-italic)'],
       },
       keyframes: {
         caret: {
@@ -17,5 +19,4 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@catppuccin/tailwindcss')],
 };

@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { Result } from '~/components/result';
 import { useTextWidth } from '~/hooks/use-text-width';
 import { Response, Result as ResultType } from '~/types/form';
@@ -23,10 +23,6 @@ export const Form = () => {
       )),
     [results]
   );
-
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
@@ -87,6 +83,7 @@ export const Form = () => {
           ref={inputRef}
           onChange={(event) => handleInputChange(event)}
           className="bg-transparent text-black caret-transparent focus:outline-none dark:text-white"
+          autoFocus
         />
         <span
           className="absolute top-0 h-full w-4 animate-caret bg-lavender bg-opacity-50"

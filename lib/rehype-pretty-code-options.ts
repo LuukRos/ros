@@ -21,7 +21,6 @@ export const rehypePrettyCodeOptions: Partial<Options> = {
     node.properties.className.push('highlighted');
   },
   onVisitHighlightedWord(node, id) {
-    // TODO: type this
     // Each word node has no className by default.
     node.properties.className = ['highlighted'];
 
@@ -45,7 +44,6 @@ export const rehypePrettyCodeOptions: Partial<Options> = {
       // colors from the child nodes.
       if (node.properties['data-rehype-pretty-code-wrapper']) {
         node.children.forEach((childNode: any) => {
-          // TODO: type this?
           childNode.properties.className = '';
         });
       }

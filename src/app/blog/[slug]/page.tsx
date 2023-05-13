@@ -39,7 +39,7 @@ export const generateMetadata = async ({
       type: 'article',
       tags: keywords,
       publishedTime, // TODO: check if this is actually correct formatting
-      url: `https://ros.dev/blog/${slug}`, // TODO: finalise URL
+      url: `https://rozsh.dev/blog/${slug}`, // TODO: finalise URL
       authors: 'Luuk Ros',
       // TODO: add support for images
     },
@@ -49,7 +49,6 @@ export const generateMetadata = async ({
       description,
       // TODO: add support for images
     },
-    // twitter: again, quite a bit
   };
 };
 

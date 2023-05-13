@@ -9,7 +9,6 @@ const PAGES: Record<string, string> = {
   ...Object.fromEntries(
     allPosts.map((post) => [post.linkSlug, `/blog/${post.linkSlug}`])
   ),
-  // ...
 };
 
 const findLinksForPath = (pathName: string) =>
@@ -38,6 +37,7 @@ export const POST = async (request: Request) => {
         });
 
       case COMMAND_TYPES[COMMAND_TYPES.ls]:
+        console.log(findLinksForPath(pathName));
         return NextResponse.json({
           body: {
             commandType,
@@ -50,6 +50,7 @@ export const POST = async (request: Request) => {
         });
 
       case COMMAND_TYPES[COMMAND_TYPES.cat]:
+        console.log(pathName);
         if (pathName !== '/')
           throw new Error('No files available in this directory');
 
@@ -62,10 +63,6 @@ export const POST = async (request: Request) => {
             file,
           },
         });
-
-      case COMMAND_TYPES[COMMAND_TYPES.curl]:
-        // TODO: write script to download files such as resume or code
-        break;
     }
   } catch (error) {
     console.error(`BE error: ${error}`); // TODO: properly process this error to the FE

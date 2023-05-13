@@ -16,8 +16,8 @@ export const italicFont = localFont({
     {
       path: './CartographCF-RegularItalic.woff2',
       weight: '400',
-      style: 'normal',
+      style: 'italic',
     },
   ],
-  variable: '--font-cartograph',
+  variable: '--font-cartograph-italic',
 });

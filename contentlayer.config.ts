@@ -4,12 +4,14 @@ import {
   FieldDefs,
   makeSource,
 } from 'contentlayer/source-files';
-import { rehypeAutolinkHeadingsOptions } from 'lib/rehype-autolink-headings-options';
-import { rehypePrettyCodeOptions } from 'lib/rehype-pretty-code-options';
+import { rehypePostVisit } from './lib/rehype-post-visit';
+import { rehypePreVisit } from './lib/rehype-pre-visit';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
+import { rehypeAutolinkHeadingsOptions } from './lib/rehype-autolink-headings-options';
+import { rehypePrettyCodeOptions } from './lib/rehype-pretty-code-options';
 
 const fields: FieldDefs = {
   title: {
@@ -73,6 +75,9 @@ export default makeSource({
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
+      // TODO: these rehype plugins are meant for copy-to-clipboard functionality, which does not work yet.
+      rehypePreVisit,
+      rehypePostVisit,
       rehypeSlug,
       [rehypePrettyCode, rehypePrettyCodeOptions],
       [rehypeAutolinkHeadings, rehypeAutolinkHeadingsOptions],

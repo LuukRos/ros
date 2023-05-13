@@ -1,7 +1,4 @@
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Link from 'next/link';
-import { isExternalUrl } from '~/utils/is-external-url';
+import { Link } from './link';
 
 type Item = {
   label: string;
@@ -20,16 +17,7 @@ export const List = ({ items, type = 'ul', resetStyles, title }: ListProps) => {
   const ListTemplate = type;
   const itemTemplate = (item: Item) =>
     item.href ? (
-      <Link href={item.href} className="text-blue">
-        {item.label}
-        {isExternalUrl(item.href) ? (
-          <FontAwesomeIcon
-            icon={faArrowUpRightFromSquare}
-            key={0}
-            className="ml-2"
-          />
-        ) : null}
-      </Link>
+      <Link href={item.href} label={item.label} />
     ) : (
       <>{item.label}</>
     );
@@ -48,7 +36,7 @@ export const List = ({ items, type = 'ul', resetStyles, title }: ListProps) => {
         }`}
       >
         {items.map((item, index) => (
-          <li key={index} className="list-item marker:text-green">
+          <li key={index} className="list-item w-fit marker:text-green">
             {item.icon}
             {itemTemplate(item)}
           </li>
