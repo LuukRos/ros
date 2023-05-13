@@ -1,8 +1,10 @@
-import { Path } from '~/components/path';
+import { Analytics } from '@vercel/analytics/react';
 
 import '~/assets/styles/globals.css';
 
+import { Path } from '~/components/path';
 import { Status } from '~/components/status';
+
 import { baseFont } from '../../public/fonts';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
@@ -19,6 +21,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         </header>
 
         {children}
+
+        <Analytics />
       </body>
     </html>
   );
